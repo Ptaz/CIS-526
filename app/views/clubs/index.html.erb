@@ -1,0 +1,27 @@
+<h1>Listing clubs</h1>
+
+<table>
+<% @clubs.each do |club| %>
+	<tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+		<td>
+			<%= image_tag(club.image_url, class: 'list_image') %>
+		</td>
+		<td class="list_description">
+			<dl>
+				<dt><%= club.title %></dt>
+				<dd><%= truncate(strip_tags(club.description), length: 80) %></dd>
+			</dl>
+		</td>
+		<td class="list_actions">
+			<%= link_to 'Show', club %><br/>
+			<%= link_to 'Edit', edit_club_path(club) %><br/>
+			<%= link_to 'Destroy', club, method: :delete,
+				data: { confirm: 'Are you sure?' } %>
+		</td>
+	</tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Club', new_club_path %>

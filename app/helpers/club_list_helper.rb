@@ -1,0 +1,2 @@
+module ClubListHelper
+end

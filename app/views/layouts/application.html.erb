@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Computing and Information Sciences Homepage</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
+	<div id="banner">
+		<%= image_tag("wordmark.png") %>
+		<%= @page_title || "CIS Home" %>
+	</div>
+	<div id="columns">
+		<div id="side">
+			<ul>
+				<li><a href="http://cis.ksu.edu/">KSU CIS Homepage</a></li>
+				<li><a href="https://online.ksu.edu/Axio/UMS/CourseListing">K-State Online</a></li>
+				<li><a href="http://cislinux.cis.ksu.edu:3021/clubs">Change or Add Clubs</a></li>
+				<li><a href="http://www.reddit.com/">Reddit</a></li>
+			</ul>
+		</div>
+		<div id="main">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

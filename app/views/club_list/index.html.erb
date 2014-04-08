@@ -1,0 +1,17 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<h1> Clubs Listing </h1>
+
+<% cache ['store', Club.latest] do%>
+	<% @clubs.each do |club| %>
+		<% cache ['entry', club] do %>
+			<div class="entry">
+				<%= image_tag(club.image_url) %>
+				<h3><%= club.title %></h3>
+				<%= sanitize(club.description) %>
+			</div>
+		<% end %>
+	<% end %>
+<% end %>
